@@ -59,6 +59,138 @@
             font-size: 1.1rem;
         }
 
+        .article-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-list article {
+            border: 1px solid white;
+            border-bottom: none;
+            height: 10rem;
+            width: 20rem;
+        }
+
+        .article-list article:first-child {
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+        }
+
+        .article-list article:last-child {
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+            border-bottom: 1px solid white;
+        }
+
+        .friendsaver-preview {
+            background-image: url('./friendsaver-horizontal.png');
+            background-size: cover;
+            background-position: center top;
+        }
+
+        @media (width >=40rem) {
+            .article-list {
+                flex-direction: row;
+            }
+
+            .article-list article {
+                border-bottom: 1px solid white;
+                border-right: none;
+                /* reset mobile */
+                height: 25rem;
+                width: 15rem;
+            }
+
+            .article-list article:first-child {
+                border-top-left-radius: 0.5rem;
+                border-bottom-left-radius: 0.5rem;
+                border-top-right-radius: 0;
+                /* reset mobile */
+            }
+
+            .article-list article:last-child {
+                border-top-right-radius: 0.5rem;
+                border-bottom-right-radius: 0.5rem;
+                border-bottom-left-radius: 0;
+                /* reset mobile */
+                border-right: 1px solid white;
+            }
+
+            .friendsaver-preview {
+                background-image: url('./friendsaver-vertical.png');
+            }
+        }
+
+        /* mini tailwind */
+        .grid {
+            display: grid;
+        }
+
+        .grid-cols-2 {
+            grid-template-columns: repeat(2, max-content);
+        }
+
+        .gap-2 {
+            gap: 0.5rem;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-items-center {
+            justify-items: center;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-sm {
+            font-size: 0.5rem;
+        }
+
+        .text-base {
+            font-size: 1rem;
+        }
+
+        .text-2xl {
+            font-size: 2rem;
+        }
+        .x3 {
+            --var-scale: 3;
+        }
+
+        .x3 .text-sm {
+            font-size: calc(0.5rem * var(--var-scale));
+        }
+
+        .x3 .text-base {
+            font-size: calc(1rem * var(--var-scale));
+        }
+
+        .x3 .text-2x {
+            font-size: calc(2rem * var(--var-scale));
+        }
+
+        .text-black {
+            color: black;
+        }
+
+        .text-transparent {
+            color: transparent;
+        }
+
+        .line-normal {
+            line-height: 1;
+        }
+
+        .py-10 {
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
+        }
+
+
         @media (prefers-color-scheme: dark) {
             body {
                 background-color: var(--dark-bg-color);
@@ -72,9 +204,27 @@
 
 <body>
     <main>
-        <h1 class="symbol">間</h1>
-        <p>Ma Dev GmbH</p>
-        <q>Developing the space in between!</q>
+        <h1 class="grid grid-cols-2 items-center line-normal gap-2 x3">
+            <span class="text-2x">間</span>
+            <span class="grid justify-items-center">
+                <span class="text-base">Ma Dev</span>
+                <span class="text-sm">GmbH</span>
+            </span>
+        </h1>
+        <div class="py-10 grid gap-2">
+            <q class="text-center">Developing the space in between ...</q>
+            <section class="article-list">
+                <article class="grid justify-items-center items-center friendsaver-preview">
+                    <h2 class="text-transparent">People</h2>
+                </article>
+                <article class="grid justify-items-center items-center">
+                    <small><i>tbd.</i></small>
+                </article>
+                <article class="grid justify-items-center items-center">
+                    <small><i>tbd.</i></small>
+                </article>
+            </section>
+        </div>
         <p class="hint">There is no usage of cookies or tracking elements on this site!</p>
         <a href="./legal.html">Imprint</a>
     </main>
